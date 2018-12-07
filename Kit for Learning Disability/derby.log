@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Nov 29 21:14:55 AST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-60ae-4e56-00000e9fa930 
+on database directory C:\Users\J\Desktop\Current Projects\computer-based-kit-for-learning-disability\Kit for Learning Disability\LearningDisabilityDataBase with class loader sun.misc.Launcher$AppClassLoader@610455d6 
+Loaded from file:/C:/Users/J/Desktop/Current%20Projects/computer-based-kit-for-learning-disability/Database/Derby%20jars/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_151-b12
+user.dir=C:\Users\J\Desktop\Current Projects\computer-based-kit-for-learning-disability\Kit for Learning Disability
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,18 @@
+.errorLable{
+    -fx-background-color: #FF4500;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+}
+
+.errorBorder{
+    -fx-border-color: #FF4500;
+    -fx-border-insets: 3;
+    -fx-border-width: 0;
+    -fx-border-style: solid;
+}
+
+.button{
+    -fx-cursor: hand;
+    -fx-border-radius: 10px;
+    -fx-background-color: #222;
+}

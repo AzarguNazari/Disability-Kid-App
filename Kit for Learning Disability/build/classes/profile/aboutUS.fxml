@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="body" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="profile.aboutUS">
+   <children>
+      <AnchorPane prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #60bfeb;">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/headSymbol.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="383.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About us" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="45.0" />
+               </font>
+            </Text>
+            <Button layoutX="847.0" layoutY="15.0" mnemonicParsing="false" onAction="#mainPage" prefHeight="57.0" prefWidth="140.0" style="-fx-background-color: #fff;" styleClass="roundedButton" text="Back">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="50.0" layoutY="106.0" prefHeight="158.0" prefWidth="916.0">
+         <children>
+            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This project is to help the disabled people who have problem such as Developmental reading disorder (dyslexia), Developmental writing disorder (dysgraphia),  Developmental arithmetic disorder (dyscalculia)   Developmental articulation disorder, Developmental expressive language disorder, Developmental receptive language disorder (auditory processing disorder) Visual processing disorder, Developmental motor skill disorder (dyspraxia), and Nonverbal learning disorder. " textAlignment="JUSTIFY" wrappingWidth="900.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="400.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Members">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="63.0" layoutY="326.0" prefHeight="233.0" prefWidth="200.0" style="-fx-border-radius: 10;" styleClass="aboutPicture">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="180.0" layoutX="16.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/members/azargul.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="37.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hazar Gul Nazari">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="4.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="32.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazariazargul@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="284.0" layoutY="326.0" prefHeight="233.0" prefWidth="200.0" style="-fx-border-radius: 10;" styleClass="aboutPicture">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="200.0" layoutX="18.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/members/jaber.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="31.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jaber Ali Alsalamah">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="4.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="29.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JaAlSaDev@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="730.0" layoutY="326.0" prefHeight="233.0" prefWidth="200.0" style="-fx-border-radius: 10;" styleClass="aboutPicture">
+         <children>
+            <ImageView fitHeight="163.0" fitWidth="163.0" layoutX="18.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/members/4rdperson.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="7.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="khaled abdullah al-zahrani">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="4.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="29.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kxk736@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="507.0" layoutY="326.0" prefHeight="233.0" prefWidth="200.0" style="-fx-border-radius: 10;" styleClass="aboutPicture">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="163.0" layoutX="17.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/members/3rdperson.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="-2.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Muhannad Khalid alwagdani">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="4.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="29.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemouz@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

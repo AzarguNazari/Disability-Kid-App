@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainBody" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage.MainPage">
+   <children>
+      <AnchorPane prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #60bfeb;">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/headSymbol.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="383.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Panel" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="45.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="70.0" layoutY="102.0" prefHeight="158.0" prefWidth="916.0">
+         <children>
+            <Button fx:id="dysgraphia" layoutX="58.0" mnemonicParsing="false" onAction="#dysgraphiaTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/writing.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="language" layoutX="244.0" mnemonicParsing="false" onAction="#languageTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/language.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="dylixia" layoutX="435.0" mnemonicParsing="false" onAction="#dyslexiaTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reading.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="visual" layoutX="621.0" mnemonicParsing="false" onAction="#visualTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/visual.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="70.0" layoutY="268.0" prefHeight="158.0" prefWidth="916.0">
+         <children>
+            <Button fx:id="dyscalculla" layoutX="58.0" mnemonicParsing="false" onAction="#dyscalcullaTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/arithmatic.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="audio" layoutX="244.0" mnemonicParsing="false" onAction="#audioTest" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/audio.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="profile" layoutX="435.0" mnemonicParsing="false" onAction="#profile" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/profileIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="about" layoutX="621.0" mnemonicParsing="false" onAction="#aboutus" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/aboutus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="70.0" layoutY="435.0" prefHeight="158.0" prefWidth="916.0">
+         <children>
+            <Button fx:id="signout" layoutX="339.0" mnemonicParsing="false" onAction="#signout" styleClass="optionButtons">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
