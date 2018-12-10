@@ -1,10 +1,10 @@
 package profile;
 
-import Database.DatabaseHandler;
-import static Database.DatabaseHandler.isEmailCorrect;
-import Database.Player;
-import Database.PlayerDAO;
-import Database.PlayerDAOImpl;
+import DatabaseAndLocalization.DatabaseHandler;
+import static DatabaseAndLocalization.DatabaseHandler.isEmailCorrect;
+import DatabaseAndLocalization.Player;
+import DatabaseAndLocalization.PlayerDAO;
+import DatabaseAndLocalization.PlayerDAOImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -31,36 +32,34 @@ import javafx.util.Duration;
  */
 public class changeProfile implements Initializable {
 
-    @FXML
-    private AnchorPane page;
+    DatabaseHandler dbh = DatabaseHandler.getInstance();
     @FXML
     private Label errorMessage;
     @FXML
-    private AnchorPane header;
-    @FXML
-    private AnchorPane profilePic;
-    @FXML
-    private AnchorPane body;
+    private AnchorPane header, profilePic, body, page;
 
     @FXML
-    private Button image1;
+    private Button image1, changePicture, Save, Back;
 
     @FXML
-    private TextField displayName;
+    private TextField displayName, password, email;
+
     @FXML
-    private TextField password;
-    @FXML
-    private TextField email;
+    private Text EditProfile;
+
     @FXML
     private ImageView image;
 
     private String imageURL, userName, pass, emailAddress;
 
+    private Player player;
+    private PlayerDAO playerDao;
+
 //    private User currentUser;
     @FXML
     private void cancelPage(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../MainPage/MainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../profile/profile.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -93,9 +92,12 @@ public class changeProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        errorMessage.setVisible(false);
+
         //1: Declare/Define variables
-        PlayerDAO playerDao = new PlayerDAOImpl();
-        Player player = playerDao.getPlayer(DatabaseHandler.getCurrentUsername());
+        playerDao = new PlayerDAOImpl();
+        player = playerDao.getPlayer(DatabaseHandler.getCurrentUsername());
 
         //2: Set the content of the text fields
         displayName.setText(player.getName());
@@ -126,34 +128,74 @@ public class changeProfile implements Initializable {
         //4: Update the player in the database
         playerDao.updatePlayer(player);
 
-        //Image image = new Image(path1.getFile());
+        //5:Image image = new Image(path1.getFile());
         Utilities.Utilities.FadeInTransition(page);
+
+        //6: Localize the profile page
+        changePicture.setText(dbh.getMessages().getString("ChangePicture"));
+        Save.setText(dbh.getMessages().getString("Save"));
+        Back.setText(dbh.getMessages().getString("Back"));
+        EditProfile.setText(dbh.getMessages().getString("EditProfile"));
+
     }
 
-    public void save(ActionEvent event) {
-        userName = displayName.getText().trim();
-        emailAddress = email.getText().trim();
-        pass = password.getText().trim();
-        System.out.println(imageURL + "  " + userName + "  " + pass + "  " + emailAddress);
+    public void save(ActionEvent event) throws InterruptedException {
+
+        //3: Change player fields
+        if (displayName.getText().trim().length() > 0) {
+            errorMessage.setVisible(false);
+            player.setName(displayName.getText());
+        } else {
+            errorHappened("name");
+            return;
+        }
+
+        if (!isEmailCorrect.test(email.getText().trim())) {
+            errorHappened("email");
+            return;
+        } else if (!player.getEmail().equals(email.getText().trim()) && !playerDao.isEmailUnique(email.getText().trim())) {
+            errorHappened("emailTaken");
+            return;
+        } else {
+            errorMessage.setVisible(false);
+            player.setEmail(email.getText());
+        }
+
+        if (password.getText().trim().length() > 0) {
+            errorMessage.setVisible(false);
+            player.setPassword(password.getText());
+        } else {
+            errorHappened("password");
+            return;
+        }
+
+        //4: Update the player in the database
+        playerDao.updatePlayer(player);
+
+        errorMessage.setStyle("-fx-background-color: #00ff00");
+        errorMessage.setText(dbh.getMessages().getString("ChangeHappened"));
+        errorMessage.setVisible(true);
+
     }
 
     private void errorHappened(String error) {
+        errorMessage.setStyle("-fx-background-color: #FF4500");
         switch (error) {
 
             case "email":
-                errorMessage.setText("Error: please enter a correct email.");
+                errorMessage.setText(dbh.getMessages().getString("EmailError"));
                 break;
 
             case "emailTaken":
-                errorMessage.setText("Error: This email is already taken.");
+                errorMessage.setText(dbh.getMessages().getString("EmailTaken"));
                 break;
 
             case "name":
-                errorMessage.setText("Error: please enter a name.");
+                errorMessage.setText(dbh.getMessages().getString("NameError"));
                 break;
 
             case "password":
-                errorMessage.setText("Error: please enter a password.");
+                errorMessage.setText(dbh.getMessages().getString("PasswordError"));
                 break;
 
         }
@@ -163,6 +205,11 @@ public class changeProfile implements Initializable {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
+
+//        fadeTransition = new FadeTransition(Duration.millis(500));
+//        fadeTransition.setNode(errorMessage);
+//        fadeTransition.setFromValue(0);
+//        fadeTransition.setToValue(1);
     }
 
 }

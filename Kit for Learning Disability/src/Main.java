@@ -1,5 +1,5 @@
 
-import Database.DatabaseHandler;
+import DatabaseAndLocalization.DatabaseHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,11 +11,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-       // DatabaseHandler dH = DatabaseHandler.getInstance();
-
+        DatabaseHandler dH = DatabaseHandler.getInstance();
         
-        Parent root = FXMLLoader.load(getClass().getResource("dyscalculla/MainCalculla.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("/MainPage/MainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Registration/LogIn.fxml"));
         Scene scene = new Scene(root);
         stage.setResizable(false);
         stage.setScene(scene);

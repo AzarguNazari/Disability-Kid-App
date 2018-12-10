@@ -1,11 +1,15 @@
 package profile;
 
-import Database.DatabaseHandler;
-import Database.Player;
-import Database.PlayerDAO;
-import Database.PlayerDAOImpl;
+import DatabaseAndLocalization.DatabaseHandler;
+import DatabaseAndLocalization.Play;
+import DatabaseAndLocalization.PlayDAO;
+import DatabaseAndLocalization.PlayDAOImpl;
+import DatabaseAndLocalization.Player;
+import DatabaseAndLocalization.PlayerDAO;
+import DatabaseAndLocalization.PlayerDAOImpl;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,28 +32,16 @@ import javafx.stage.Stage;
 public class profile implements Initializable {
 
     @FXML
-    private Text username;
+    private Text username, email, password,ProfileLabel,GamePlayProgress;
 
     @FXML
-    private Text email;
+    private Button EditProfile,MainPage,signout, profile, dylixia, dysgraphia, dyscalculla, visual, audio, about, language;
 
     @FXML
-    private Text password;
+    private AreaChart<?, ?> addSubProgress, numCompProgress, countProgress;
 
     @FXML
-    private Button signout, profile, dylixia, dysgraphia, dyscalculla, visual, audio, about, language;
-
-    @FXML
-    private AreaChart<?, ?> dyslixiaProgress;
-
-    @FXML
-    private AreaChart<?, ?> dyscalcullaProgress;
-
-    @FXML
-    private AnchorPane profilePane;
-
-    @FXML
-    private AnchorPane body;
+    private AnchorPane profilePane, body;
 
     @FXML
     private void mainPage(ActionEvent event) throws IOException {
@@ -69,41 +61,50 @@ public class profile implements Initializable {
         stage.show();
     }
 
+    private void drawData(AreaChart<?, ?> chart, PlayDAO playDAO, String gameID) {
+        ArrayList<Play> gameData = (ArrayList<Play>) playDAO.getPlayByPlayerAndGame(DatabaseHandler.getCurrentUsername(), gameID);
+
+        XYChart.Series set = new XYChart.Series<>();
+
+        for (Play play : gameData) {
+
+            set.getData().add(new XYChart.Data(play.getTimePlayed().toString(), play.getScore()));
+        }
+
+        chart.getData().addAll(set);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        System.out.println(LogIn.user.getEmail());
-//        System.out.println(LogIn.user.getImage());
-//        System.out.println(LogIn.user.getUserName());
-//        System.out.println(LogIn.user.getPassword());
-//        username.setText(LogIn.user.getUserName());
-//        email.setText(LogIn.user.getEmail());
-//        password.setText(LogIn.user.getPassword());
-
+        //1: Declare/Define variables
+        DatabaseHandler dbh = DatabaseHandler.getInstance();
         PlayerDAO playerDao = new PlayerDAOImpl();
+        PlayDAO playDAO = new PlayDAOImpl();
         Player player = playerDao.getPlayer(DatabaseHandler.getCurrentUsername());
         Utilities.Utilities.FadeInTransition(body);
         Utilities.Utilities.FadeInTransition(profilePane);
 
+        //2: Set the player information in the GUI
         username.setText(player.getName());
         email.setText(player.getEmail());
         password.setText(player.getPassword());
 
+        //3: Draw the gameplay data
+        drawData(addSubProgress, playDAO, "AddSub");
+        drawData(numCompProgress, playDAO, "NumComp");
+        drawData(countProgress, playDAO, "Count");
         
+        //4: Localize the profile page
+        ProfileLabel.setText(dbh.getMessages().getString("ProfileLabel"));
+        GamePlayProgress.setText(dbh.getMessages().getString("GamePlayProgress"));
         
-        XYChart.Series set1 = new XYChart.Series<>();
-//        String names[] = {"Ahmad", "Karim", "Jamshid", "Mahmood", "Nabi"};
-//        for (int x = 0; x < 100; x++) {
-//            int value = (int) (Math.random() * 10000);
-//            set1.getData().add(new XYChart.Data(names[(int) (Math.random() * names.length)], value));
-//        }
+        EditProfile.setText(dbh.getMessages().getString("EditProfile"));
+        MainPage.setText(dbh.getMessages().getString("MainPage"));
+        
+        addSubProgress.setTitle(dbh.getMessages().getString("AddSubProgress"));
+        numCompProgress.setTitle(dbh.getMessages().getString("NumCompProgress"));
+        countProgress.setTitle(dbh.getMessages().getString("CountProgress"));
 
-        dyslixiaProgress.getData().addAll(set1);
-
-        XYChart.Series set2 = new XYChart.Series<>();
-//        for (int x = 50; x < 1000; x += 50) {
-//            set2.getData().add(new XYChart.Data(x + "", x));
-//        }
-        dyscalcullaProgress.getData().addAll(set2);
     }
 
 }

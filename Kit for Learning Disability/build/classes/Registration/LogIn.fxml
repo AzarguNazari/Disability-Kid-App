@@ -4,7 +4,9 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,6 +21,12 @@
                   <Image url="@../images/headSymbol.png" />
                </image>
             </ImageView>
+            <RadioButton fx:id="English" layoutX="413.0" layoutY="76.0" mnemonicParsing="false" onAction="#changeLanguage" selected="true" text="English">
+               <toggleGroup>
+                  <ToggleGroup fx:id="language" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Arabic" layoutX="413.0" layoutY="100.0" mnemonicParsing="false" onAction="#changeLanguage" text="Arabic" toggleGroup="$language" />
          </children>
       </AnchorPane>
         <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="28.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
@@ -26,13 +34,13 @@
                 <Image url="@../images/user.png" />
             </image>
         </ImageView>
-        <TextField fx:id="email" layoutX="169.0" layoutY="220.0" prefHeight="30.0" prefWidth="243.0" promptText="Username" styleClass="errorBorder" />
+        <TextField fx:id="username" layoutX="169.0" layoutY="220.0" prefHeight="30.0" prefWidth="243.0" promptText="Username" styleClass="errorBorder" />
         <PasswordField fx:id="password" layoutX="169.0" layoutY="259.0" prefHeight="30.0" prefWidth="243.0" promptText="Password" styleClass="errorBorder" />
-      <Button layoutX="168.0" layoutY="326.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="243.0" text="Sign In" textFill="WHITE">
+      <Button fx:id="login" layoutX="168.0" layoutY="326.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="243.0" text="Sign In" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-        <Hyperlink layoutX="419.0" layoutY="227.0" onAction="#register" text="Register an account" />
+        <Hyperlink fx:id="RegisterAnAccount" layoutX="419.0" layoutY="227.0" onAction="#RegisterAnAccount" text="Register an account" />
       <Label fx:id="error" layoutX="122.0" layoutY="373.0" prefHeight="35.0" prefWidth="310.0" style="-fx-border-radius: 10;" styleClass="errorLable" stylesheets="@../css/main.css" textFill="WHITE">
          <font>
             <Font size="15.0" />

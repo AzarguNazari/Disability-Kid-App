@@ -1,8 +1,6 @@
 package Experiment;
 
 import java.util.Random;
-import static Experiment.CountTheFigures.generateOptions;
-import static Experiment.CountTheFigures.pickCorrectAnswer;
 import java.util.ArrayList;
 
 public class additionSubtraction {

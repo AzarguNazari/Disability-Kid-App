@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,27 +10,32 @@
 
 <AnchorPane fx:id="body" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dyscalculla.MainCalculla">
    <children>
-      <AnchorPane prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #222;">
+      <AnchorPane prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #60bfeb;">
          <children>
-            <Text fill="#eeeeee" layoutX="328.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Game" textAlignment="CENTER">
+            <ImageView fitHeight="83.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/headSymbol.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="ChooseGame" layoutX="328.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Game" textAlignment="CENTER">
                <font>
                   <Font name="Arial Black" size="45.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="5.0" layoutY="84.0" prefHeight="517.0" prefWidth="997.0" styleClass="background">
+      <AnchorPane layoutX="13.0" layoutY="72.0" prefHeight="478.0" prefWidth="980.0">
          <children>
-            <Button layoutX="111.0" layoutY="100.0" mnemonicParsing="false" onAction="#identifyingNumbers" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
+            <Button layoutX="111.0" layoutY="63.0" mnemonicParsing="false" onAction="#identifyingNumbers" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
                <graphic>
-                  <ImageView fitHeight="250.0" fitWidth="210.0" onDragDetected="#identifyingNumbers" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="250.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/identifyingNumbers.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="373.0" layoutY="99.0" mnemonicParsing="false" onAction="#countingFigures" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
+            <Button layoutX="373.0" layoutY="62.0" mnemonicParsing="false" onAction="#countingFigures" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
                <graphic>
                   <ImageView fitHeight="250.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,7 +44,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="641.0" layoutY="101.0" mnemonicParsing="false" onAction="#arithmaticProblems" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
+            <Button layoutX="637.0" layoutY="62.0" mnemonicParsing="false" onAction="#arithmaticProblems" prefHeight="147.0" prefWidth="161.0" style="-fx-background-color: #222;" styleClass="optionButtons">
                <graphic>
                   <ImageView fitHeight="250.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,253 +53,23 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="366.0" layoutY="385.0" mnemonicParsing="false" onAction="#mainPage" prefHeight="56.0" prefWidth="231.0" styleClass="optionButtons" text="Main Back" textFill="WHITE">
+            <Button fx:id="MainPage" layoutX="375.0" layoutY="395.0" mnemonicParsing="false" onAction="#mainPage" prefHeight="56.0" prefWidth="231.0" styleClass="optionButtons" text="Main Page" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
             </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="identifyingNumsGame" layoutX="352.0" layoutY="109.0" prefHeight="376.0" prefWidth="220.0" style="-fx-background-color: #222;" styleClass="roundedButton">
-         <children>
-            <Button layoutX="48.0" layoutY="98.0" mnemonicParsing="false" onAction="#identifyingNumbersGameLevel1" text="Level 1">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Text fill="#eeeeee" layoutX="41.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose The Level">
+            <Label fx:id="NumCompLabel" layoutX="157.0" layoutY="341.0" text="Number Comparison">
                <font>
                   <Font size="20.0" />
-               </font>
-            </Text>
-            <Button layoutX="49.0" layoutY="175.0" mnemonicParsing="false" onAction="#identifyingNumbersGameLevel2" text="Level 2">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level2.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="49.0" layoutY="251.0" mnemonicParsing="false" onAction="#identifyingNumbersGameLevel3" text="Level 3">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level3.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="arithmaticGame" layoutX="189.0" layoutY="96.0" prefHeight="476.0" prefWidth="429.0" style="-fx-background-color: #222;" visible="false">
-         <children>
-            <Text fill="#eeeeee" layoutX="179.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learn Table">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#eeeeee" layoutX="125.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Addition &amp; Subtraction">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#eeeeee" layoutX="171.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comparison">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Button layoutX="19.0" layoutY="65.0" mnemonicParsing="false" onAction="#addSubLevel1" text="Level 1">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="154.0" layoutY="67.0" mnemonicParsing="false" onAction="#addSubLevel2" text="Level 2">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level2.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="289.0" layoutY="68.0" mnemonicParsing="false" onAction="#addSubLevel3" text="Level 3">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level3.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="29.0" layoutY="243.0" mnemonicParsing="false" onAction="#comparisonLevel1" text="Level 1">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="164.0" layoutY="245.0" mnemonicParsing="false" onAction="#comparisonLevel2" text="Level 2">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level2.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="299.0" layoutY="246.0" mnemonicParsing="false" onAction="#comparisonLevel3" text="Level 3">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level3.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="110.0" layoutY="394.0" mnemonicParsing="false" onAction="#learnTable" prefHeight="45.0" prefWidth="252.0" text="Learn Table">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-         </children>
-         <styleClass>
-            <String fx:value="rounded" />
-            <String fx:value="roundedButton" />
-         </styleClass>
-      </AnchorPane>
-      <AnchorPane fx:id="countingFiguresGame" layoutX="619.0" layoutY="110.0" prefHeight="376.0" prefWidth="220.0" style="-fx-background-color: #222;" styleClass="roundedButton" visible="false">
-         <children>
-            <Button layoutX="48.0" layoutY="98.0" mnemonicParsing="false" onAction="#countingFiguresLevel1" text="Level 1">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Text fill="#eeeeee" layoutX="41.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose The Level">
+               </font></Label>
+            <Label fx:id="CountLabel" layoutX="421.0" layoutY="341.0" text="Count The Figures">
                <font>
                   <Font size="20.0" />
-               </font>
-            </Text>
-            <Button layoutX="49.0" layoutY="175.0" mnemonicParsing="false" onAction="#countingFiguresLevel2" text="Level 2">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level2.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               </font></Label>
+            <Label fx:id="AddSubLabel" layoutX="678.0" layoutY="341.0" text="Addition/Subtraction">
                <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
-            <Button layoutX="49.0" layoutY="251.0" mnemonicParsing="false" onAction="#countingFiguresLevel3" text="Level 3">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/level3.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="roundedButton" />
-                  <String fx:value="whiteShadow" />
-               </styleClass>
-            </Button>
+                  <Font size="20.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>
