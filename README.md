@@ -1,0 +1,2 @@
+# KitDisabilityApp
+his project is to help the disabled people who have problem such as Developmental reading disorder (dyslexia), Developmental writing disorder (dysgraphia),  Developmental arithmetic disorder (dyscalculia)   Developmental articulation disorder, Developmental expressive language disorder, Developmental receptive language disorder (auditory processing disorder) Visual processing disorder, Developmental motor skill disorder (dyspraxia), and Nonverbal learning disorder. 
